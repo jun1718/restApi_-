@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>showCreateSuccess</title>
+</head>
+<body>
+<p>
+    여긴 회원가입 성공한 아이디의 정보를 보여주는 성지 <br>
+    이곳을 왔다하여서 로그인이 된 것은 아니다. <br>
+</p>
+
+<p>
+    [회원가입 된 정보] <br>
+    회원 id : <span th:text="${member.id}"></span> <br>
+    회원 eamil : <span th:text="${member.email}"></span> <br>
+    회원 상태 : <span th:text="${member.memberStatus}"></span> <br>
+    회원 권한 :
+    <span th:if = "${#strings.equals(member.authority, 'ROLE_USER')}">일반 유저등급(관리자가 되려면 글을 900개 쓰세요)<br></span>
+    <span th:if = "${#strings.equals(member.authority, 'ROLE_ADMIN')}">관리자 등급(더이상 올라갈 등급이 없습니다. 회원들을 관리하세요.<br></span>
+</p>
+
+<a href = "/login">회원가입을 성공했다면 로그인하라</a>
+</body>
+</html>
