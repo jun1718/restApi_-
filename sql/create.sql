@@ -4,7 +4,7 @@ create table member (
 	member_no bigint auto_increment primary key,
 	id varchar(20) not null unique,
     pw varchar(100) not null,
-    email varchar(20) not null unique,
+    email varchar(100) not null unique,
     member_status varchar(50) not null,
     authority varchar(50) not null
 );

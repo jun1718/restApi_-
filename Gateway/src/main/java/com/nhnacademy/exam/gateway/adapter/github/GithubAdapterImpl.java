@@ -1,4 +1,4 @@
-package com.nhnacademy.exam.gateway.adapter;
+package com.nhnacademy.exam.gateway.adapter.github;
 
 import com.nhnacademy.exam.gateway.domain.git.AccessTokenBody;
 import com.nhnacademy.exam.gateway.domain.git.GitUserData;

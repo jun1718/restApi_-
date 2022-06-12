@@ -1,4 +1,4 @@
-package com.nhnacademy.exam.gateway.adapter;
+package com.nhnacademy.exam.gateway.adapter.member;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.nhnacademy.exam.gateway.domain.member.Member;

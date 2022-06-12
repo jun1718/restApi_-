@@ -2,8 +2,6 @@ package com.nhnacademy.exam.accountapi.service;
 
 import com.nhnacademy.exam.accountapi.dto.MemberDto;
 import com.nhnacademy.exam.accountapi.entity.Member;
-import com.nhnacademy.exam.accountapi.memberEnum.MemberAuthorityEnum;
-import com.nhnacademy.exam.accountapi.memberEnum.MemberStatusEnum;
 import com.nhnacademy.exam.accountapi.repository.MemberRepository;
 import com.nhnacademy.exam.accountapi.vo.MemberVo;
 import javax.persistence.EntityManager;
@@ -45,7 +43,7 @@ public class MemberServiceImpl
 
     private Member getMember(MemberVo memberVo) {
         Member member = new Member(memberVo.getId(), memberVo.getPw(), memberVo.getEmail(),
-            MemberStatusEnum.JOIN.getValue(), MemberAuthorityEnum.USER.getValue());
+            memberVo.getMemberStatus(), memberVo.getAuthority());
         return member;
     }
 

@@ -1,11 +1,7 @@
-package com.nhnacademy.exam.gateway.adapter;
+package com.nhnacademy.exam.gateway.adapter.member;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nhnacademy.exam.gateway.domain.member.Member;
 import java.util.List;
-import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;

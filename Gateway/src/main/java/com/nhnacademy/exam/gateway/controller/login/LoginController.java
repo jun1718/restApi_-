@@ -24,11 +24,12 @@ public class LoginController {
     @GetMapping("/login")
     public String login(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        if (Objects.isNull(session)) return "showLoginForm";
+        if (Objects.isNull(session)) return "login/showLoginForm";
 
         MemberVo memberVo = (MemberVo) redisTemplate.opsForHash().get(session.getId(), "member");
-        if (Objects.isNull(memberVo)) return "showLoginForm";
+        if (Objects.isNull(memberVo)) return "login/showLoginForm";
+
         model.addAttribute("member", memberVo);
-        return "showLoginSuccess";
+        return "login/showLoginSuccess";
     }
 }

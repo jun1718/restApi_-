@@ -1,14 +1,9 @@
 package com.nhnacademy.exam.gateway.config;
 
 import com.nhnacademy.exam.gateway.auth.LoginSuccessHandler;
+import com.nhnacademy.exam.gateway.common.FieldRepository;
 import com.nhnacademy.exam.gateway.service.login.CustomUserDetailsService;
 import com.nhnacademy.exam.gateway.vo.member.MemberVo;
-import com.nhnacademy.exam.gateway.vo.security.UserDetailsVo;
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,13 +14,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 @EnableWebSecurity
 @Configuration
@@ -54,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                        response.sendRedirect("/login");
 //                    }
 //                })
-                .successHandler(loginSuccessHandler(null))
+                .successHandler(loginSuccessHandler(null, null))
                 .failureUrl("/login")
                 .and()
             .logout()
@@ -97,8 +88,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
+    public FieldRepository staticField() {
+        return new FieldRepository();
+    }
+
+    @Bean
     public AuthenticationSuccessHandler loginSuccessHandler(
-        RedisTemplate<String, MemberVo> redisTemplate) {
-        return new LoginSuccessHandler(redisTemplate);
+        RedisTemplate<String, MemberVo> redisTemplate, FieldRepository staticFiled) {
+        return new LoginSuccessHandler(redisTemplate, staticFiled);
     }
 }

@@ -1,8 +1,7 @@
 package com.nhnacademy.exam.gateway.service.login;
 
-
-import com.nhnacademy.exam.gateway.adapter.GithubAdapter;
-import com.nhnacademy.exam.gateway.adapter.MemberAdapter;
+import com.nhnacademy.exam.gateway.adapter.github.GithubAdapter;
+import com.nhnacademy.exam.gateway.adapter.member.MemberAdapter;
 import com.nhnacademy.exam.gateway.domain.git.AccessTokenBody;
 import com.nhnacademy.exam.gateway.domain.git.GitUserData;
 import com.nhnacademy.exam.gateway.domain.member.Member;
@@ -67,12 +66,3 @@ public class GithubLoginServiceImpl
         return true;
     }
 }
-
-/*
-        accessToken = responseEntityOfAccessToken.getBody();
-        ObjectMapper mapper = new ObjectMapper();
-        AccessTokenBody accessTokenBody = mapper.readValue(responseEntityOfAccessToken.getBody(), AccessTokenBody.class);
-        headers.add("accept", "application/json");
-        ResponseEntity<String> responseEntityOfAccessToken =
-            restTemplate.exchange(uriComponents.toUri(), HttpMethod.POST, new HttpEntity(headers), String.class);
-    */
