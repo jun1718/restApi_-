@@ -1,7 +1,7 @@
 package com.nhnacademy.exam.accountapi.dto;
 
 public interface MemberDto {
-    String getMemberNo();
+    Long getMemberNo();
     String getId();
     String getPw();
     String getEmail();

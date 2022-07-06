@@ -7,6 +7,7 @@ import com.nhnacademy.exam.gateway.vo.security.UserDetailsVo;
 import java.io.IOException;
 import java.util.Objects;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -27,12 +28,14 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
         HttpSession session = request.getSession();
         response.sendRedirect("/login");
 
-        if (Objects.isNull(session)) return;
+//        if (Objects.isNull(session)) return;
         UserDetailsVo userDetailsVo = (UserDetailsVo)authentication.getPrincipal();
         Member member = userDetailsVo.getMember();
         MemberVo memberVo = new MemberVo(member.getMemberNo(), member.getId(), member.getEmail(), member.getMemberStatus(), member.getAuthority());
 
         redisTemplate.opsForHash().put(session.getId(), "member", memberVo);
+//        Cookie cookie = new Cookie("sessionId", session.getId());
+//        response.addCookie(cookie);
         staticField.setSessionId(session.getId());
     }
 }

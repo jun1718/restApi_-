@@ -1,9 +1,11 @@
 package com.nhnacademy.exam.accountapi.service;
 
 import com.nhnacademy.exam.accountapi.dto.MemberDto;
+import com.nhnacademy.exam.accountapi.dto.MemberDtoCreateComposition;
 import com.nhnacademy.exam.accountapi.entity.Member;
 import com.nhnacademy.exam.accountapi.repository.MemberRepository;
 import com.nhnacademy.exam.accountapi.vo.MemberVo;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class MemberServiceImpl
     implements MemberService {
     private final MemberRepository memberRepository;
-    @PersistenceContext
-    private EntityManager entityManager;
 
     private static final String FAIL_VALUE_DUPLICATION = "{\"fail\" : \"duplication\"}";
     private static final String FAIL_VALUE_NOT_FOUND = "{\"fail\" : \"notFoundMember\"}";
@@ -30,9 +30,6 @@ public class MemberServiceImpl
 
         Member member = getMember(memberVo);
         memberRepository.save(member);
-        entityManager.clear();
-
-        if (!memberRepository.existsByMemberNo(member.getMemberNo())) return FAIL_VALUE_NOT_FOUND;
         return "{\"memberNo\" : \"" + member.getMemberNo() + "\"}";
     }
 
@@ -61,5 +58,12 @@ public class MemberServiceImpl
     @Override
     public MemberDto findMemberDtoByEmail(String email) {
         return memberRepository.findMemberDtoByEmail(email);
+    }
+
+    @Override
+    public List<MemberDtoCreateComposition> findAllCreateComposition() {
+        List<MemberDtoCreateComposition> memberDtoCreateCompositionAll =
+            memberRepository.findAllCreateComposition();
+        return memberDtoCreateCompositionAll;
     }
 }

@@ -1,0 +1,7 @@
+com\nhnacademy\exam\taskapi\service\project\project\ProjectServiceImplTest.class
+com\nhnacademy\exam\taskapi\controller\project\ProjectCreateControllerTest.class
+com\nhnacademy\exam\taskapi\TaskApiApplicationTests.class
+com\nhnacademy\exam\taskapi\repository\project\ProjectRepositoryTest.class
+com\nhnacademy\exam\taskapi\controller\project\ProjectSelectControllerTest.class
+com\nhnacademy\exam\taskapi\repository\composition\CompositionRepositoryTest.class
+com\nhnacademy\exam\taskapi\controller\project\ProjectSelectControllerTest$1.class

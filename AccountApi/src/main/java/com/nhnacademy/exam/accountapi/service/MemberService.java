@@ -1,7 +1,9 @@
 package com.nhnacademy.exam.accountapi.service;
 
 import com.nhnacademy.exam.accountapi.dto.MemberDto;
+import com.nhnacademy.exam.accountapi.dto.MemberDtoCreateComposition;
 import com.nhnacademy.exam.accountapi.vo.MemberVo;
+import java.util.List;
 
 public interface MemberService {
     String createMember(MemberVo member);
@@ -11,4 +13,6 @@ public interface MemberService {
     MemberDto findMemberDtoById(String id);
 
     MemberDto findMemberDtoByEmail(String email);
+
+    List<MemberDtoCreateComposition> findAllCreateComposition();
 }

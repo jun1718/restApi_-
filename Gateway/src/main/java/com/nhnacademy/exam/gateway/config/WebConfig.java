@@ -1,5 +1,6 @@
 package com.nhnacademy.exam.gateway.config;
 
+//import com.nhnacademy.exam.gateway.interceptor.LoginCheckInterceptor;
 import com.nhnacademy.exam.gateway.interceptor.LoginCheckInterceptor;
 import com.nhnacademy.exam.gateway.vo.member.MemberVo;
 import org.springframework.context.annotation.Bean;
@@ -19,8 +20,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("/home");
+        registry.addViewController("/").setViewName("/showHome");
         registry.addViewController("/member/create").setViewName("member/showMemberCreateForm");
+        registry.addViewController("/project/create").setViewName("project/showProjectCreateForm");
     }
 
     @Bean

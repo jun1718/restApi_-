@@ -1,16 +1,17 @@
 package com.nhnacademy.exam.gateway.service.member;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nhnacademy.exam.gateway.adapter.member.MemberAdapter;
 import com.nhnacademy.exam.gateway.domain.member.Member;
-import com.nhnacademy.exam.gateway.exception.CreateFailException;
 import com.nhnacademy.exam.gateway.gateEnum.member.MemberAuthorityEnum;
 import com.nhnacademy.exam.gateway.gateEnum.common.StatusEnum;
 import com.nhnacademy.exam.gateway.service.common.CreateDeserializer;
+import com.nhnacademy.exam.gateway.vo.member.MemberVoCreateComposition;
+import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,11 @@ public class MemberServiceImpl
         Map<String, Long> map = CreateDeserializer.getJsonDeserializedMapAndFailCheck(json);
 
         return map.get("memberNo");
+    }
+
+    @Override
+    public List<MemberVoCreateComposition> findAllCreateComposition() {
+        return memberAdapter.findAllCreateComposition();
     }
 
     private void fixMemberAboutEncryptionAndEtc(Member member) {

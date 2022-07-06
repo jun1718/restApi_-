@@ -1,0 +1,26 @@
+POST http://localhost:9091/project/create
+Accept: application/json
+Content-Type: application/json
+
+{
+  "adminMemberNo": 1,
+  "name": "우리들의 영웅",
+  "projectStatus": "활성"
+}
+
+
+###
+
+GET http://localhost:9091/projects/2
+Accept: application/json
+
+
+###
+
+GET http://localhost:9091/projects/findProjectDtoClassByAdminMemberNo/1?size=3&page=1&sort=projectNo,desc
+Accept: application/json
+
+###
+
+GET http://localhost:9091/projects/findProjectDtoClassByComposition/1?size=3&page=0&sort=projectNo,desc
+

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequiredArgsConstructor
 public class GithubLoginController {
-    private final GithubLoginService githubLoginService;
+    private final GithubLoginService githubLog1inService;
 
     @GetMapping("/github/login")
     public String goLoginPageRequest(HttpServletResponse response) throws IOException {

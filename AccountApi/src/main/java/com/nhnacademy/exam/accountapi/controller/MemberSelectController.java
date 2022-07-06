@@ -1,8 +1,10 @@
 package com.nhnacademy.exam.accountapi.controller;
 
 import com.nhnacademy.exam.accountapi.dto.MemberDto;
+import com.nhnacademy.exam.accountapi.dto.MemberDtoCreateComposition;
 import com.nhnacademy.exam.accountapi.entity.Member;
 import com.nhnacademy.exam.accountapi.service.MemberService;
+import java.util.List;
 import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,11 @@ public class MemberSelectController {
     @GetMapping
     public MemberDto findMemberDtoById(@RequestParam String id) {
         return memberService.findMemberDtoById(id);
+    }
+
+    @GetMapping("/find/createComposition")
+    public List<MemberDtoCreateComposition> findAllCreateComposition() {
+        return memberService.findAllCreateComposition();
     }
 
     @GetMapping("/email")

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowProjectAllAdmin</title>
+</head>
+<body>
+
+<h2>내가 관리자인 프로젝트 리스트</h2>
+<p th:each="project : ${projectList}">
+    프로젝트 번호 : <span th:text="${project.projectNo}"></span> &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+    관리자 번호 : <span th:text="${project.adminMemberNo}"></span> &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+    프로젝트명 : <span th:text="${project.name}"></span> &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+    프로젝트 상태 : <span th:text="${project.projectStatus}"></span> &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+    <a th:href = "@{/projects/management/{projectNo}(projectNo=${project.projectNo})}">프로젝트 가기</a>
+<!--    <a href = "/composition/create">프로젝트 멤버추가</a>-->
+</p>
+
+<a th:if = "${pageable.pageNumber >= 1}" th:href = "@{/projects/admin(page=${pageable.pageNumber - 1}, size = ${pageable.pageSize})}">< </a>
+<span th:text = "${pageable.pageNumber + 1}"> </span>
+<a th:if = "${pageable.pageNumber < totalPages - 1}" th:href = "@{/projects/admin(page=${pageable.pageNumber + 1}, size = ${pageable.pageSize})}"> ></a><br>
+<br>
+<a href = "/">홈으로 가기</a>
+</body>
+</html>

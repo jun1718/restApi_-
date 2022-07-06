@@ -2,6 +2,7 @@ package com.nhnacademy.exam.gateway.service.login;
 
 import com.nhnacademy.exam.gateway.adapter.github.GithubAdapter;
 import com.nhnacademy.exam.gateway.adapter.member.MemberAdapter;
+import com.nhnacademy.exam.gateway.common.FieldRepository;
 import com.nhnacademy.exam.gateway.domain.git.AccessTokenBody;
 import com.nhnacademy.exam.gateway.domain.git.GitUserData;
 import com.nhnacademy.exam.gateway.domain.member.Member;
@@ -30,6 +31,7 @@ public class GithubLoginServiceImpl
     private final GithubAdapter githubAdapter;
     private final MemberAdapter memberAdapter;
     private final RedisTemplate<String, MemberVo> redisTemplate;
+    private final FieldRepository fieldRepository;
 
     @Override
     public String getUriForLoginPageRequest() {
@@ -63,6 +65,7 @@ public class GithubLoginServiceImpl
         SecurityContext securityContext = SecurityContextHolder.getContext();
         securityContext.setAuthentication(authentication);
         redisTemplate.opsForHash().put(session.getId(), "member", new MemberVo(member.getMemberNo(), member.getId(), member.getEmail(), member.getMemberStatus(), member.getAuthority()));
+        fieldRepository.setSessionId(session.getId());
         return true;
     }
 }

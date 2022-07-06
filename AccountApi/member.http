@@ -9,13 +9,20 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "id" : "admin11",
+  "id" : "admin12",
   "pw" : "1234",
-  "email" : "admin@nhn.com11",
+  "email" : "admin@nhn.com12",
+  "memberStatus" : "가입",
   "authority" : "ROLE_USER"
 }
 
 ###
 
-GET http://localhost:9090/members/email?email=nhn@naver.com
+GET http://localhost:9090/members/email?email=admin@nhn.com11
 Accept: application/json
+
+###
+
+GET http://localhost:9090/members/find/createComposition
+Accept: application/json
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ProjectCreateSuccess</title>
+</head>
+<body>
+    <p>
+        프로젝트 생성 성공!<br>
+        [생성한 프로젝트 정보] <br><br>
+        프로젝트 고유번호 : <sapn th:text = "${responseVo.projectNo}"></sapn><br>
+        관리자 ID : <sapn th:text = "${responseVo.adminMemberId}"></sapn><br>
+        프로젝트 이름 : <sapn th:text = "${responseVo.projectName}"></sapn><br>
+        프로젝트 상태 : <sapn th:text = "${responseVo.projectStatus}"></sapn><br>
+    </p>
+    <br>
+    <a href = "/">홈으로 가기</a>
+</body>
+</html>

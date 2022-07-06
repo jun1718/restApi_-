@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Management</title>
+</head>
+<body>
+<h2>프로젝트 기본정보</h2>
+프로젝트 고유번호 : <span th:text = "${session.project.projectNo}"></span> <br>
+프로젝트명 : <span th:text = "${session.project.name}"></span><br>
+프로젝트 관리자 id  : <span th:text = "${session.member.id}"></span><br>
+프로젝트 상태 : <span th:text = "${session.project.projectStatus}"></span><br>
+<br>
+<a th:href = "@{/composition/create}">프로젝트 멤버추가</a><br>
+<a th:href = "@{/}">task 생성</a><br>
+<a th:href = "@{/}">토큰 생성</a><br>
+<a th:href = "@{/}">마일스톤 생성</a><br>
+<br>
+<a href = "/">홈으로 가기</a>
+</body>
+</html>

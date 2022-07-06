@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CompositionCreateForm</title>
+    <style>
+        div {
+            overflow: scroll;
+            width: 30%;
+            height: 70%;
+        }
+    </style>
+</head>
+<body>
+    <h2>[여기는 구성원 추가 페이지!]</h2>
+    <hr>
+    <form action="/composition/createProcessing" method="post">
+        <div>
+        <p th:each = "member : ${memberList}">
+            <lable>
+                <input th:unless = "${#strings.equals(member.id, session.member.id)}" type="checkbox" name="checkedMember" th:value = "${member.memberNo}" th:text = "${member.id}"></input>
+            </lable>
+        </p>
+        </div>
+        <input type="submit" value="멤버추가">
+    </form>
+    <br>
+    <a href = "/">홈으로 가기</a>
+</body>
+</html>
