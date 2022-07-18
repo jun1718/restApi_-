@@ -1,17 +1,13 @@
 package com.nhnacademy.exam.gateway.controller.login;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.nhnacademy.exam.gateway.domain.git.AccessTokenBody;
 import com.nhnacademy.exam.gateway.domain.git.GitUserData;
 import com.nhnacademy.exam.gateway.exception.NoEmailException;
 import com.nhnacademy.exam.gateway.service.login.GithubLoginService;
-import com.nhnacademy.exam.gateway.vo.member.MemberVo;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,10 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequiredArgsConstructor
 public class GithubLoginController {
-    private final GithubLoginService githubLog1inService;
+    private final GithubLoginService githubLoginService;
 
     @GetMapping("/github/login")
     public String goLoginPageRequest(HttpServletResponse response) throws IOException {
+
         String uri = githubLoginService.getUriForLoginPageRequest();
         return "redirect:" + uri;
     }
@@ -31,7 +28,6 @@ public class GithubLoginController {
     public String checkLoginThroughEmail(@RequestParam("code") String code,
                           @RequestParam("state") String state,
                                          HttpSession session) {
-
         AccessTokenBody accessTokenBody = githubLoginService.getAccessToken(code, state);
 
         GitUserData gitUserData = githubLoginService.getGitUserData(accessTokenBody.getAccessToken());

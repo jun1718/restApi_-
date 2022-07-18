@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -37,5 +38,6 @@ public class LoginSuccessHandler implements AuthenticationSuccessHandler {
 //        Cookie cookie = new Cookie("sessionId", session.getId());
 //        response.addCookie(cookie);
         staticField.setSessionId(session.getId());
+        PageImpl
     }
 }

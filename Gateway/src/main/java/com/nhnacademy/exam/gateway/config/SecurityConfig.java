@@ -4,7 +4,6 @@ import com.nhnacademy.exam.gateway.auth.LoginSuccessHandler;
 import com.nhnacademy.exam.gateway.common.FieldRepository;
 import com.nhnacademy.exam.gateway.service.login.CustomUserDetailsService;
 import com.nhnacademy.exam.gateway.vo.member.MemberVo;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

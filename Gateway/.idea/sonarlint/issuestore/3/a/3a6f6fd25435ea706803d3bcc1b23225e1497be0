@@ -1,0 +1,13 @@
+
+u
+java:S1450 "ZRemove the "classLoader" field and declare it as a local variable in the relevant methods.(âòú«ûÿÿÿÿ
+<
+java:S1452."&Remove usage of generic wildcard type.(Æ‰óÜ
+<
+java:S1452."&Remove usage of generic wildcard type.(Æ‰óÜ
+^
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.databind.ObjectMapper'.(´‘¨™
+u
+java:S1128"ZRemove this unused import 'org.springframework.security.jackson2.SecurityJackson2Modules'.(» Â‰ÿÿÿÿÿ
+J
+java:S1068 "/Remove this unused "classLoader" private field.(âòú«ûÿÿÿÿ
